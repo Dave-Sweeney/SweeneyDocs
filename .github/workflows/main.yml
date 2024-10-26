@@ -31,7 +31,6 @@ jobs:
           host: ${{ secrets.SERVER_HOSTNAME }}
           username: ${{ secrets.SERVER_USERNAME }}
           password: ${{ secrets.SERVER_USERNAME }}
-          port: 22
           source: "SweeneyDocs/*"
           target: "/var/www"
         
