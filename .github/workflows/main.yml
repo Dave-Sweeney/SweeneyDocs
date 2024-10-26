@@ -40,7 +40,7 @@ jobs:
           with:
             host: ${{ secrets.SERVER_HOSTNAME }}
             username: ${{ secrets.SERVER_USERNAME }}
-            password: ${{ secrets.SERVER_USERNAME }}
+            password: ${{ secrets.SERVER_PASSWORD }}
             source: "SweeneyDocs/*"
             target: "/var/www"
             port: ${{ secrets.SERVER_PORT }}
