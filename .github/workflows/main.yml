@@ -41,6 +41,7 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
   deploy:
+      needs: login
       runs-on: self-hosted
 
       steps:
