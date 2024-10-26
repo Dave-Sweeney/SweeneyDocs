@@ -26,10 +26,12 @@ jobs:
           cd SweeneyDocs && 
           mkdocs build
       - name: Deploy Site
-        uses: srueda99/scp-action@v12
+        uses: appleboy/scp-action@v0.1.7
         with:
-             port: 22
-             host: ${{ secrets.SERVER_HOSTNAME }}
-             destination: ${{ secrets.SERVER_PATH }}
-             username: ${{ secrets.SERVER_USERNAME }}
-             key: ${{ secrets.SERVER_KEY }}
+          host: ${{ secrets.SERVER_HOSTNAME }}
+          username: ${{ secrets.SERVER_USERNAME }}
+          password: ${{ secrets.SERVER_USERNAME }}
+          port: 22
+          source: "site/*"
+          target: "/var/www"
+        
