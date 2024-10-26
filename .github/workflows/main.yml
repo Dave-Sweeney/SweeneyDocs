@@ -5,7 +5,6 @@ on:
 
 jobs:
   build:
-
     runs-on: self-hosted
 
     steps:
@@ -25,12 +24,17 @@ jobs:
         run: |
           cd SweeneyDocs && 
           mkdocs build
-      - name: Deploy Site
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SERVER_HOSTNAME }}
-          username: ${{ secrets.SERVER_USERNAME }}
-          password: ${{ secrets.SERVER_USERNAME }}
-          source: "SweeneyDocs/*"
-          target: "/var/www"
+  
+  deploy:
+      runs-on: self-hosted
+
+      steps:
+        - name: Deploy Site
+          uses: appleboy/scp-action@v0.1.7
+          with:
+            host: ${{ secrets.SERVER_HOSTNAME }}
+            username: ${{ secrets.SERVER_USERNAME }}
+            password: ${{ secrets.SERVER_USERNAME }}
+            source: "SweeneyDocs/*"
+            target: "/var/www"
         
