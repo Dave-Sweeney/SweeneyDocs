@@ -53,5 +53,5 @@ jobs:
             password: ${{ secrets.SERVER_PASSWORD }}
             source: "SweeneyDocs/*"
             target: "/var/www"
-            port: ${{ secrets.SERVER_PORT }}
+            port: 22
         
