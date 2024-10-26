@@ -31,27 +31,13 @@ jobs:
         run: |
           cd SweeneyDocs && 
           mkdocs build
-  login:
-    runs-on: self-hosted
-    steps:
-      - name: Login to GitHub Container Registry
-        uses: docker/login-action@v3
-        with:
-          registry: ghcr.io
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          
   deploy:
-      needs: login
+      
       runs-on: self-hosted
 
       steps:
         - name: Deploy Site
-          uses: appleboy/scp-action@v0.1.7
-          with:
-            host: ${{ secrets.SERVER_HOSTNAME }}
-            username: ${{ secrets.SERVER_USERNAME }}
-            password: ${{ secrets.SERVER_PASSWORD }}
-            source: "SweeneyDocs/*"
-            target: "/var/www"
-            port: 22
+          run: |
+            scp -r SweeneyDocs/* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOSTNAME }}:/var/www
         
