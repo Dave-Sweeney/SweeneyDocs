@@ -11,7 +11,7 @@ on:
 
 jobs:
   build:
-    if: ${{ inputs.skip-build != 'true' }}
+    if: ${{ inputs.skip-build != true }}
     runs-on: self-hosted
 
     steps:
