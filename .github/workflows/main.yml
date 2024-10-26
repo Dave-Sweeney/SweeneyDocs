@@ -22,12 +22,14 @@ jobs:
       - name: Install MkDocs Requirements
         run: pip install -r requirements.txt
       - name: Build Docs Site
-        env: 
-          USER: ${{ secrets.SERVER_USERNAME }}
-          HOST: ${{ secrets.SERVER_HOSTNAME }}
-          PATH: ${{ secrets.SERVER_PATH }}
         run: |
           cd SweeneyDocs && 
-          mkdocs build &&
-          scp -r ./site $USER@$HOST:$PATH
-          
+          mkdocs build
+      - name: Deploy Site
+        uses: srueda99/scp-action@v12
+        with:
+             port: 22
+             host: ${{ secrets.SERVER_HOSTNAME }}
+             destination: ${{ secrets.SERVER_PATH }}
+             username: ${{ secrets.SERVER_USERNAME }}
+             key: ${{ secrets.SERVER_KEY }}
