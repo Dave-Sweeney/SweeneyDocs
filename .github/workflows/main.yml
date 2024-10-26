@@ -22,4 +22,7 @@ jobs:
       - name: Install MkDocs Requirements
         run: pip install -r requirements.txt
       - name: Build Docs Site
-        run: cd SweeneyDocs && mkdocs build
+        run: |
+          cd SweeneyDocs && 
+          mkdocs build &&
+          
