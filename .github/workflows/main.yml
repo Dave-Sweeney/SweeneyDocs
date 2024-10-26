@@ -2,9 +2,15 @@ name: Deploy SweeneyDocs
 
 on: 
   workflow_dispatch:
+    inputs:
+      skip-build:
+        description: 'Skip the build step'
+        required: false
+        default: 'false'
 
 jobs:
   build:
+    if: ${{ inputs.skip-build != 'true' }}
     runs-on: self-hosted
 
     steps:
