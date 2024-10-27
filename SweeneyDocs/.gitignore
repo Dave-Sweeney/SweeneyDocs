@@ -63,7 +63,7 @@ target/
 .python-version
 
 # visual studio code stuff
-.vs/*
+.vs/
 
 # virtualenv
 venv/
