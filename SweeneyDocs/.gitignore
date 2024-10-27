@@ -62,6 +62,9 @@ target/
 # pyenv
 .python-version
 
+# visual studio code stuff
+.vs/
+
 # virtualenv
 venv/
 ENV/
