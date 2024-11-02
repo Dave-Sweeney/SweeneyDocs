@@ -39,9 +39,9 @@ jobs:
       
       runs-on: self-hosted
       needs: build
-      
+
       steps:
         - name: Deploy Site
           run: |
-            scp -r SweeneyDocs/* ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOSTNAME }}:/var/www
+            scp -r /SweeneyDocs ${{ secrets.SERVER_USERNAME }}@${{ secrets.SERVER_HOSTNAME }}:/var/www
         
